@@ -1,0 +1,157 @@
+/* base.css */
+
+/* Universal box-sizing for easier layout calculations */
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; /* 1rem = 10px, for easier calculations */
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+/* Basic body styles */
+body {
+    color: #161616;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 1.6rem; /* 16px */
+    line-height: 1.5;
+    margin: 0;
+    min-height: 100vh; /* Ensure body takes at least full viewport height */
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #3e3e3e;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+h1 { font-size: 3.2rem; } /* 32px */
+h2 { font-size: 2.8rem; } /* 28px */
+h3 { font-size: 2.4rem; } /* 24px */
+
+/* Links */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Lists */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Images */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 0.8rem;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+/* Forms */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.6rem;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Utility classes for layout (used by checker) */
+.works_on_smartphone {
+    /* Default for larger screens */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure body takes full viewport height for flex column */
+}
+
+.works_on_smartphone main {
+    display: flex;
+    flex-direction: row;
+    flex: auto; /* Allows main to grow and shrink */
+}
+
+.works_on_smartphone article {
+    flex: 2; /* Takes 2/3 of available space in main */
+    overflow-y: auto; /* Allows scrolling within article */
+    padding: 2rem; /* Add some padding for readability */
+}
+
+.works_on_smartphone aside {
+    flex: 1; /* Takes 1/3 of available space in main */
+    overflow-y: auto; /* Allows scrolling within aside */
+    padding: 2rem; /* Add some padding for readability */
+}
+
+/* Responsive adjustments for smartphones */
+@media screen and (max-width: 480px) {
+    .works_on_smartphone {
+        /* Reset to default block display for small screens */
+        display: block;
+        min-height: auto;
+    }
+
+    .works_on_smartphone main {
+        display: block;
+        flex-direction: unset; /* Remove flex-direction */
+        flex: unset; /* Remove flex */
+    }
+
+    .works_on_smartphone article,
+    .works_on_smartphone aside {
+        flex: unset; /* Remove flex */
+        overflow-y: unset; /* Remove overflow-y */
+        padding: 1rem; /* Adjust padding for smaller screens */
+    }
+}
+
+/* Logo styling (for Task 3) */
+.logo {
+    font-size: 4rem; /* Make the logo character bigger */
+    font-weight: bold;
+    color: #007bff; /* Example color */
+    margin-right: 2rem;
+}
